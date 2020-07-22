@@ -53,13 +53,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `flexible-gatsby-starter`,
-        short_name: `flexible-gatsby`,
+        name: `Adil's Page`,
+        short_name: `sparky005`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `./static/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `./src/components/pic.jpg`, // This path is relative to the root of the site.
       },
     },
     // `gatsby-plugin-offline`,
