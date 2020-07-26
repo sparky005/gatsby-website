@@ -285,14 +285,8 @@ Finally, we fit the model:
 
 ```python
 clf.fit(train, y)
+LinearRegression(copy_X=True, fit_intercept=True, n_jobs=2, normalize=False)
 ```
-
-
-
-
-    LinearRegression(copy_X=True, fit_intercept=True, n_jobs=2, normalize=False)
-
-
 
 Fitting the model should happen pretty quickly (less than a second on a modern machine.) 
 
@@ -353,14 +347,8 @@ We can take a look at the r-score to see that we achieved the same results as de
 
 ```python
 r2_score(y, pred)
+0.94264680416237079
 ```
-
-
-
-
-    0.94264680416237079
-
-
 
 The data is current to 11/13 and shows Bitcoin at a predicted price of ~7000 USD and an actual price of ~6700 USD. Given that Bitcoin is currently trading at ~7200 USD on GDAX as of this writing (11/15), it seems that this model has some value.
 
