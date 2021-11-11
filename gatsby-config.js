@@ -35,13 +35,15 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 970,
+	      withWebp: true,
+	      withAvif: true,
             },
           },
           {
             resolve: `gatsby-remark-katex`,
             options: {
               strict: `warn`,
-            }
+            },
           },
           {
             resolve: `gatsby-remark-copy-linked-files`,
@@ -54,8 +56,9 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

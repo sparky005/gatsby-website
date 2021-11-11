@@ -27,12 +27,12 @@ class BlogIndex extends React.Component {
               <article className="post" key={node.fields.slug}>
                 {node.frontmatter.img &&
                   node.frontmatter.img.childImageSharp &&
-                  node.frontmatter.img.childImageSharp.fluid && (
+                  node.frontmatter.img.childImageSharp.gatsbyImageData && (
                     <Link
                       to={node.fields.slug}
                       className="post-thumbnail"
                       style={{
-                        backgroundImage: `url(${node.frontmatter.img.childImageSharp.fluid.src})`,
+                        backgroundImage: `url(${node.frontmatter.img.childImageSharp.gatsbyImageData.images.fallback.src})`,
                       }}
                     />
                   )}
@@ -51,32 +51,31 @@ class BlogIndex extends React.Component {
               </article>
             )
           })}
-        </div>
-
-        <div className="container">
-          <nav className="pagination" role="pagination">
-            <ul>
-              {!isFirst && (
+          <div className="container">
+            <nav className="pagination" role="navigation">
+              <ul>
+                {!isFirst && (
+                  <p>
+                    <Link to={prevPage} rel="prev" className="newer-posts">
+                      ← Previous Page
+                    </Link>
+                  </p>
+                )}
                 <p>
-                  <Link to={prevPage} rel="prev" className="newer-posts">
-                    ← Previous Page
-                  </Link>
+                  <span className="page-number">
+                    Page {currentPage} of {numPages}
+                  </span>
                 </p>
-              )}
-              <p>
-                <span className="page-number">
-                  Page {currentPage} of {numPages}
-                </span>
-              </p>
-              {!isLast && (
-                <p>
-                  <Link to={nextPage} rel="next" className="older-posts">
-                    Next Page →
-                  </Link>
-                </p>
-              )}
-            </ul>
-          </nav>
+                {!isLast && (
+                  <p>
+                    <Link to={nextPage} rel="next" className="older-posts">
+                      Next Page →
+                    </Link>
+                  </p>
+                )}
+              </ul>
+            </nav>
+          </div>
         </div>
       </DefaultLayout>
     )
@@ -109,13 +108,7 @@ export const pageQuery = graphql`
             title
             img {
               childImageSharp {
-                fluid(maxWidth: 3720) {
-                  aspectRatio
-                  base64
-                  sizes
-                  src
-                  srcSet
-                }
+                gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH, formats: [AUTO, AVIF, WEBP])
               }
             }
           }
