@@ -9,7 +9,7 @@ module.exports = {
       facebook: ``,
       github: `sparky005`,
       linkedin: `adil-sadik-02ab6378`,
-      email: `sparky.005@gmail.com`,
+      email: `adilsadik@gmail.com`,
     },
   },
   plugins: [
